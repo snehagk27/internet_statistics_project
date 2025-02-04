@@ -1,5 +1,17 @@
 import csv
 import psycopg2
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Get database credentials from .env
+DB_NAME = os.getenv("DB_DATABASE")
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
 
 def convert_to_int(value):
     try:
@@ -15,15 +27,16 @@ def convert_to_float(value):
 
 # Connect to PostgreSQL
 conn = psycopg2.connect(
-    dbname="internet_statistics",
-    user="postgres",
-    password="Anaisnin2703!",
-    host="localhost"
+    dbname=DB_NAME,
+    user=DB_USER,
+    password=DB_PASSWORD,
+    host=DB_HOST,
+    port=DB_PORT
 )
 cur = conn.cursor()
 
 # Load countries data
-with open('backend\data\countries.csv', 'r') as f:
+with open('backend/data/countries.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader)  # Skip header row
     for row in reader:
@@ -33,7 +46,7 @@ with open('backend\data\countries.csv', 'r') as f:
         )
 
 # Load internet statistics data
-with open('backend\data\country_internet_statistics.csv', 'r') as f:
+with open('backend/data/country_internet_statistics.csv', 'r') as f:
     reader = csv.reader(f)
     next(reader)  # Skip header row
     for row in reader:
