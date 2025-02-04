@@ -1,6 +1,8 @@
 const express = require('express');
 const { Pool } = require('pg');
-require('dotenv').config();  // Load environment variables from .env
+require('dotenv').config();  // Load environment variables
+
+const authenticateApiKey = require('./middleauth');  // Import API key middleware
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -18,6 +20,9 @@ const pool = new Pool({
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
+
+// Apply API key authentication to all /api routes
+app.use('/api', authenticateApiKey);
 
 // Route to get all countries
 app.get('/api/countries', async (req, res) => {
@@ -45,7 +50,13 @@ app.get('/api/statistics/:country', async (req, res) => {
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
+// Export app for testing
+module.exports = app;
+
+// Start the server if not in test mode
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+}
+
