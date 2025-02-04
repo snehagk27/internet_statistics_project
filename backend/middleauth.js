@@ -6,7 +6,7 @@ const authenticateApiKey = (req, res, next) => {
   
   // Validate API key
   if (!apiKey || apiKey !== process.env.API_KEY) {
-    return res.status(403).json({ error: 'Forbidden: Invalid API Key' });
+    return res.status(401).json({ error: 'API key is required or invalid' });
   }
   
   next(); // Continue to the next middleware/route handler
