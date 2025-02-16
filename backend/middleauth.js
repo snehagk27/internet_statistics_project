@@ -1,15 +1,21 @@
-require('dotenv').config();  // Load environment variables
+// middleauth.js
+const API_KEY = process.env.API_KEY;  // Assuming you have the API key stored in your .env file
 
 // Middleware to authenticate API key
 const authenticateApiKey = (req, res, next) => {
-  const apiKey = req.header('x-api-key'); // Read API key from request header
-  
-  // Validate API key
-  if (!apiKey || apiKey !== process.env.API_KEY) {
-    return res.status(401).json({ error: 'API key is required or invalid' });
+  const apiKey = req.headers['authorization'];
+
+  if (!apiKey) {
+    return res.status(401).json({ error: 'API key is missing' });
   }
-  
-  next(); // Continue to the next middleware/route handler
+
+  if (apiKey !== `Bearer ${API_KEY}`) {
+    return res.status(401).json({ error: 'Invalid API key' });
+  }
+
+  next();  // If API key is correct, continue to the next route handler
 };
 
 module.exports = authenticateApiKey;
+
+

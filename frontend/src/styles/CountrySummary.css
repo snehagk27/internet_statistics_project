@@ -1,0 +1,125 @@
+.summary-container {
+  font-family: 'Arial', sans-serif;
+  margin: 30px auto;
+  max-width: 1200px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.summary-table th, .summary-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+}
+
+.summary-table th {
+  background-color: #28a745; /* Green header */
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.summary-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.summary-table tr:hover {
+  background-color: #ddd;
+}
+
+.rate-input {
+  width: 150px;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.update-button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.update-button:hover {
+  background-color: #218838;
+}
+
+.update-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Go to Home Button */
+.go-home-button {
+  padding: 8px 16px;
+  background-color: #28a745; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+}
+
+.go-home-button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+
+/* Mobile-specific Styles */
+@media (max-width: 768px) {
+  .summary-title {
+    font-size: 1.5rem;
+  }
+
+  .summary-table th, .summary-table td {
+    padding: 8px;
+  }
+
+  .rate-input {
+    width: 120px;
+    font-size: 0.9rem;
+  }
+
+  .update-button, .go-home-button {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+
+  .summary-table th {
+    font-size: 0.9rem;
+  }
+
+  .summary-table td {
+    font-size: 0.9rem;
+  }
+
+  .summary-table {
+    font-size: 0.9rem;
+  }
+}

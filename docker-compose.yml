@@ -1,0 +1,22 @@
+
+
+services:
+  backend:
+    build: ./Backend
+    container_name: backend_service
+    restart: always
+    env_file:
+      - .env  # Load all environment variables from the .env file
+    environment:
+      DB_HOST: host.docker.internal  # Override DB_HOST for Docker container to connect to the local DB
+    ports:
+      - "${PORT}:${PORT}"  # Expose the backend port (3000 by default)
+
+  frontend:
+    build: ./Frontend
+    container_name: frontend_service
+    restart: always
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
