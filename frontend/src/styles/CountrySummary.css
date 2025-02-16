@@ -29,7 +29,7 @@
 }
 
 .summary-table th {
-  background-color: #28a745; /* Green header */
+  background-color: #28a745; 
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -74,10 +74,10 @@
   margin-top: 20px;
 }
 
-/* Go to Home Button */
+
 .go-home-button {
   padding: 8px 16px;
-  background-color: #28a745; /* Green color */
+  background-color: #28a745; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -87,7 +87,7 @@
 }
 
 .go-home-button:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838; 
 }
 
 

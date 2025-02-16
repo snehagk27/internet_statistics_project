@@ -1,5 +1,5 @@
-// middleauth.js
-const API_KEY = process.env.API_KEY;  // Assuming you have the API key stored in your .env file
+
+const API_KEY = process.env.API_KEY;  
 
 // Middleware to authenticate API key
 const authenticateApiKey = (req, res, next) => {

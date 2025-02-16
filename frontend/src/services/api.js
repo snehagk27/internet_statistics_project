@@ -41,7 +41,7 @@ export const getCountriesOrderedByRate = async () => {
   }
 };
 
-// **NEW: Function to update the WB Rate**
+// Function to update the WB Rate
 export const updateCountryRate = async (countryCode, newRate) => {
   try {
     const response = await api.put('/update-rate', { countryCode, newRate });

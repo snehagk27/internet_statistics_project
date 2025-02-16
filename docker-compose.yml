@@ -10,7 +10,7 @@ services:
     environment:
       DB_HOST: host.docker.internal  # Override DB_HOST for Docker container to connect to the local DB
     ports:
-      - "${PORT}:${PORT}"  # Expose the backend port (3000 by default)
+      - "${PORT}:${PORT}"  # Expose the backend port 
 
   frontend:
     build: ./Frontend

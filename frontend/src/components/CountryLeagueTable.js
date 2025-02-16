@@ -40,12 +40,12 @@ const CountryLeagueTable = () => {
     return a.rate_wb && !isNaN(a.rate_wb) ? -1 : 1;
   });
 
-  // Apply search filter **before** pagination
+  // Apply search filter
   const searchedCountries = sortedCountries.filter(country =>
     country.country.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Pagination logic (apply after search filter)
+  // Pagination logic 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = searchedCountries.slice(indexOfFirstItem, indexOfLastItem);
